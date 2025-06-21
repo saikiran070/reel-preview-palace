@@ -67,15 +67,15 @@ const VideoCard = ({ video, onPreview }) => {
 
       {/* Card Info */}
       <div className="mt-3">
-        <h3 className="font-medium text-white text-sm truncate group-hover:text-blue-400 transition-colors">
+        <h3 className="font-bold text-white text-sm truncate group-hover:text-blue-300 transition-colors">
           {video.title}
         </h3>
-        <div className="mt-1 flex items-center gap-2 text-xs text-gray-300">
+        <div className="mt-1 flex items-center gap-2 text-xs">
           <span className="bg-yellow-500 text-black px-2 py-0.5 rounded text-xs font-bold">
             {video.rating}
           </span>
-          <span className="bg-gray-600 text-gray-200 px-2 py-0.5 rounded">{video.genre}</span>
-          <span className="text-gray-300">{video.duration}</span>
+          <span className="bg-gray-700 text-white px-2 py-0.5 rounded font-medium">{video.genre}</span>
+          <span className="text-gray-200 font-medium">{video.duration}</span>
         </div>
       </div>
     </div>

@@ -25,12 +25,12 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
   };
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center w-full">
       {/* Desktop Search Bar */}
-      <div className="hidden md:flex relative">
-        <form onSubmit={handleSubmit} className="relative">
-          <div className={`flex items-center transition-all duration-300 ${
-            isFocused ? 'w-80' : 'w-64'
+      <div className="hidden md:flex relative w-full">
+        <form onSubmit={handleSubmit} className="relative w-full">
+          <div className={`flex items-center transition-all duration-300 w-full ${
+            isFocused ? 'transform scale-105' : ''
           }`}>
             <div className="relative w-full">
               <Search 
@@ -44,8 +44,8 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
                 placeholder="Search movies, shows..."
-                className={`w-full pl-10 pr-10 py-2 bg-gray-700 border border-gray-500 rounded-lg text-white placeholder-gray-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-gray-600 ${
-                  isFocused ? 'shadow-lg' : ''
+                className={`w-full pl-10 pr-10 py-2.5 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-gray-700 ${
+                  isFocused ? 'shadow-lg shadow-blue-500/20' : ''
                 }`}
               />
               {searchTerm && (
@@ -65,7 +65,7 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
       {/* Mobile Search Toggle */}
       <button
         onClick={onToggle}
-        className="md:hidden p-2 rounded-lg hover:bg-gray-700 transition-colors text-gray-200 hover:text-white"
+        className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors text-white hover:text-blue-300"
       >
         {isExpanded ? <X size={20} /> : <Search size={20} />}
       </button>
@@ -84,7 +84,7 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
                 value={searchTerm}
                 onChange={handleInputChange}
                 placeholder="Search movies, shows..."
-                className="w-full pl-10 pr-10 py-3 bg-gray-700 border border-gray-500 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full pl-10 pr-10 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 autoFocus
               />
               {searchTerm && (

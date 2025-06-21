@@ -30,8 +30,8 @@ const Hero = () => {
       />
       
       {/* Enhanced Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30" />
       
       {/* Content */}
       <div className="relative z-10 flex h-full items-end">
@@ -49,18 +49,18 @@ const Hero = () => {
           </h1>
           
           {/* Description */}
-          <p className="text-lg text-gray-100 mb-6 leading-relaxed max-w-xl drop-shadow-lg">
+          <p className="text-lg text-gray-100 mb-6 leading-relaxed max-w-xl drop-shadow-lg font-medium">
             {featured.description}
           </p>
           
           {/* Metadata */}
-          <div className="flex items-center gap-4 mb-8 text-sm text-gray-100">
+          <div className="flex items-center gap-4 mb-8 text-sm">
             <div className="flex items-center gap-1">
               <Star size={16} fill="#fbbf24" className="text-yellow-400" />
-              <span className="text-white font-medium">{featured.rating}</span>
+              <span className="text-white font-bold">{featured.rating}</span>
             </div>
-            <span className="bg-gray-700/80 text-gray-100 px-2 py-1 rounded">{featured.genre}</span>
-            <span className="bg-gray-700/80 text-gray-100 px-2 py-1 rounded">{featured.duration}</span>
+            <span className="bg-gray-800/90 text-white px-3 py-1 rounded font-medium">{featured.genre}</span>
+            <span className="bg-gray-800/90 text-white px-3 py-1 rounded font-medium">{featured.duration}</span>
             <span className="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">HD</span>
             <span className="bg-blue-600 text-white px-2 py-1 rounded text-xs font-bold">CC</span>
           </div>
@@ -93,14 +93,14 @@ const Hero = () => {
           </div>
           
           {/* Bottom info */}
-          <div className="mt-6 text-sm text-gray-200">
+          <div className="mt-6 text-sm text-gray-200 font-medium">
             <p>Watch with ads or upgrade to remove ads. Learn more about ads.</p>
           </div>
         </div>
         
         {/* Volume Button */}
         <div className="absolute bottom-24 right-6">
-          <button className="p-3 bg-gray-700/80 backdrop-blur-sm rounded-full text-white hover:bg-gray-600/80 transition-colors border border-gray-500">
+          <button className="p-3 bg-gray-800/90 backdrop-blur-sm rounded-full text-white hover:bg-gray-700/90 transition-colors border border-gray-600">
             <Volume2 size={20} />
           </button>
         </div>
