@@ -14,10 +14,10 @@ const CategoryFilter = ({ categories, activeCategory, onCategoryChange }) => {
           <button
             key={category}
             onClick={() => handleCategoryClick(category)}
-            className={`whitespace-nowrap px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+            className={`whitespace-nowrap px-6 py-3 text-sm font-medium rounded-full transition-all duration-200 border ${
               activeCategory === category
-                ? 'bg-blue-600 text-white' 
-                : 'bg-slate-800 text-gray-300 hover:bg-slate-700 hover:text-white'
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white border-transparent shadow-lg transform scale-105' 
+                : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:text-white border-gray-600 hover:border-gray-500'
             }`}
           >
             {category}

@@ -54,7 +54,7 @@ const Index = () => {
   }, [activeCategory]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-black text-white">
       <Navigation />
       
       <div className="pb-8">
