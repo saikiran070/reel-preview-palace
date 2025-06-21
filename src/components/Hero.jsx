@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Play, Info, Star } from 'lucide-react';
+import { Play, Info, Star, Volume2 } from 'lucide-react';
 import videoData from '../data/videoData.json';
 
 const Hero = () => {
@@ -16,77 +16,94 @@ const Hero = () => {
     alert(`ℹ️ More info about: ${featured.title}\n\n${featured.description}`);
   };
 
+  const handleWatchlist = () => {
+    console.log('Added to watchlist:', featured.title);
+    alert(`➕ Added "${featured.title}" to your watchlist`);
+  };
+
   return (
-    <div className="relative h-[75vh] min-h-[600px] w-full overflow-hidden rounded-2xl shadow-2xl">
-      {/* Background Image with Overlay */}
+    <div className="relative h-[85vh] w-full overflow-hidden">
+      {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-[10s] hover:scale-110"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${featured.image})` }}
       />
       
-      {/* Multiple Gradient Overlays for Better Text Visibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-      <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-purple-900/20" />
+      {/* Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/20" />
       
       {/* Content */}
-      <div className="relative z-10 flex h-full items-end p-8 lg:p-16">
-        <div className="max-w-3xl space-y-6">
-          {/* Title with Animation */}
-          <h1 className="text-5xl font-black text-white lg:text-7xl leading-tight animate-fade-in bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text">
+      <div className="relative z-10 flex h-full items-end">
+        <div className="px-4 lg:px-6 pb-16 max-w-2xl">
+          {/* Prime Video Badge */}
+          <div className="mb-4">
+            <span className="inline-block bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded">
+              Prime Video Original
+            </span>
+          </div>
+          
+          {/* Title */}
+          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
             {featured.title}
           </h1>
           
           {/* Description */}
-          <p className="text-lg text-gray-200 leading-relaxed max-w-2xl animate-fade-in lg:text-xl">
+          <p className="text-lg text-gray-200 mb-6 leading-relaxed max-w-xl">
             {featured.description}
           </p>
           
-          {/* Metadata with Enhanced Styling */}
-          <div className="flex flex-wrap items-center gap-4 text-sm animate-fade-in">
-            <div className="flex items-center gap-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1.5 rounded-full font-bold shadow-lg">
-              <Star size={16} fill="currentColor" />
-              {featured.rating}
+          {/* Metadata */}
+          <div className="flex items-center gap-4 mb-8 text-sm text-gray-300">
+            <div className="flex items-center gap-1">
+              <Star size={16} fill="#fbbf24" className="text-yellow-400" />
+              <span className="text-white font-medium">{featured.rating}</span>
             </div>
-            <span className="bg-gray-800/80 backdrop-blur-sm text-white px-3 py-1.5 rounded-full font-medium border border-gray-700">
-              {featured.genre}
-            </span>
-            <span className="bg-gray-800/80 backdrop-blur-sm text-white px-3 py-1.5 rounded-full font-medium border border-gray-700">
-              {featured.duration}
-            </span>
-            <span className="bg-red-600/80 backdrop-blur-sm text-white px-3 py-1.5 rounded-full font-medium border border-red-500/50">
-              HD
-            </span>
+            <span>{featured.genre}</span>
+            <span>{featured.duration}</span>
+            <span className="bg-gray-700 text-white px-2 py-1 rounded text-xs">HD</span>
+            <span className="bg-gray-700 text-white px-2 py-1 rounded text-xs">CC</span>
           </div>
           
-          {/* Action Buttons with Enhanced Design */}
-          <div className="flex flex-wrap gap-4 animate-fade-in pt-4">
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-4">
             <button 
               onClick={handlePlay}
-              className="group flex items-center gap-3 rounded-full bg-white px-8 py-4 font-bold text-black transition-all duration-300 hover:bg-gray-100 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="flex items-center gap-2 bg-white text-black px-8 py-3 rounded font-bold hover:bg-gray-200 transition-all duration-200 shadow-lg"
             >
-              <div className="p-1 rounded-full bg-black/10 group-hover:bg-black/20 transition-colors">
-                <Play size={20} fill="currentColor" />
-              </div>
-              Play Now
+              <Play size={20} fill="currentColor" />
+              Play
+            </button>
+            
+            <button 
+              onClick={handleWatchlist}
+              className="flex items-center gap-2 bg-gray-700/80 text-white px-8 py-3 rounded font-medium hover:bg-gray-600 transition-all duration-200 backdrop-blur-sm"
+            >
+              <Info size={20} />
+              Watchlist
             </button>
             
             <button 
               onClick={handleMoreInfo}
-              className="group flex items-center gap-3 rounded-full bg-gray-800/80 backdrop-blur-sm px-8 py-4 font-bold text-white transition-all duration-300 hover:bg-gray-700/80 hover:scale-105 border border-gray-600 shadow-lg hover:shadow-xl"
+              className="flex items-center gap-2 bg-transparent border-2 border-gray-600 text-white px-8 py-3 rounded font-medium hover:bg-gray-600/20 transition-all duration-200"
             >
-              <div className="p-1 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
-                <Info size={20} />
-              </div>
+              <Info size={20} />
               More Info
             </button>
           </div>
+          
+          {/* Bottom info */}
+          <div className="mt-6 text-sm text-gray-400">
+            <p>Watch with ads or upgrade to remove ads. Learn more about ads.</p>
+          </div>
         </div>
-      </div>
-      
-      {/* Subtle Animation Indicator */}
-      <div className="absolute bottom-8 right-8 animate-pulse">
-        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+        
+        {/* Volume Button */}
+        <div className="absolute bottom-24 right-6">
+          <button className="p-3 bg-gray-800/50 backdrop-blur-sm rounded-full text-white hover:bg-gray-700/50 transition-colors">
+            <Volume2 size={20} />
+          </button>
+        </div>
       </div>
     </div>
   );

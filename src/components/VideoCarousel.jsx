@@ -24,22 +24,22 @@ const VideoCarousel = ({ title, videos, onPreview }) => {
   };
 
   return (
-    <div className="mb-8">
-      <h2 className="mb-4 text-2xl font-bold text-white px-4 lg:px-8">
+    <div className="mb-10">
+      <h2 className="mb-4 text-xl font-bold text-white px-4 lg:px-6">
         {title}
       </h2>
       
       <div className="group relative">
         <button 
           onClick={() => scroll('left')}
-          className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white opacity-0 transition-all hover:bg-black/70 hover:scale-110 group-hover:opacity-100 lg:left-4"
+          className="absolute left-2 top-1/2 z-10 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 lg:left-4"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={20} />
         </button>
         
         <div 
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto scrollbar-hide px-4 lg:px-8"
+          className="flex gap-3 overflow-x-auto scrollbar-hide px-4 lg:px-6"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {videos.map((video) => (
@@ -53,9 +53,9 @@ const VideoCarousel = ({ title, videos, onPreview }) => {
         
         <button 
           onClick={() => scroll('right')}
-          className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white opacity-0 transition-all hover:bg-black/70 hover:scale-110 group-hover:opacity-100 lg:right-4"
+          className="absolute right-2 top-1/2 z-10 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 lg:right-4"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={20} />
         </button>
       </div>
     </div>

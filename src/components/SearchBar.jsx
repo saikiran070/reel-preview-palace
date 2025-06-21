@@ -21,7 +21,6 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
-    // Real-time search as user types
     onSearch(e.target.value);
   };
 
@@ -44,9 +43,9 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
                 onChange={handleInputChange}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
-                placeholder="Search movies, shows, genres..."
-                className={`w-full pl-10 pr-10 py-2.5 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent focus:bg-gray-800/80 ${
-                  isFocused ? 'shadow-lg shadow-red-500/20' : ''
+                placeholder="Search movies, shows..."
+                className={`w-full pl-10 pr-10 py-2 bg-slate-800 border border-slate-700 rounded-md text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                  isFocused ? 'bg-slate-700' : ''
                 }`}
               />
               {searchTerm && (
@@ -66,7 +65,7 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
       {/* Mobile Search Toggle */}
       <button
         onClick={onToggle}
-        className="md:hidden p-2 rounded-full hover:bg-gray-800 transition-colors text-gray-300 hover:text-white"
+        className="md:hidden p-2 rounded-md hover:bg-slate-800 transition-colors text-gray-300 hover:text-white"
       >
         {isExpanded ? <X size={20} /> : <Search size={20} />}
       </button>
@@ -85,7 +84,7 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
                 value={searchTerm}
                 onChange={handleInputChange}
                 placeholder="Search movies, shows..."
-                className="w-full pl-10 pr-10 py-3 bg-gray-800/90 backdrop-blur-sm border border-gray-700 rounded-full text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="w-full pl-10 pr-10 py-3 bg-slate-800 border border-slate-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 autoFocus
               />
               {searchTerm && (

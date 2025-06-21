@@ -29,49 +29,50 @@ const VideoCard = ({ video, onPreview }) => {
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleCardClick}
     >
-      <div className="relative overflow-hidden rounded-lg">
+      <div className="relative overflow-hidden rounded-lg bg-slate-800">
         <img 
           src={video.image} 
           alt={video.title}
-          className="h-[200px] w-full object-cover transition-transform duration-300 group-hover:scale-110"
+          className="h-[160px] w-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
         
+        {/* Progress Bar */}
         {video.progress && (
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-600">
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700">
             <div 
-              className="h-full bg-red-600 transition-all duration-300"
+              className="h-full bg-blue-600 transition-all duration-300"
               style={{ width: `${video.progress}%` }}
             />
           </div>
         )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="flex gap-2">
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
+          <div className="flex gap-3">
             <button 
               onClick={handlePlayClick}
-              className="rounded-full bg-white/20 p-2 backdrop-blur-sm transition-all hover:bg-white/30 hover:scale-110"
+              className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
             >
-              <Play size={24} className="text-white" fill="currentColor" />
+              <Play size={20} className="text-white" fill="currentColor" />
             </button>
             <button 
               onClick={handleInfoClick}
-              className="rounded-full bg-white/20 p-2 backdrop-blur-sm transition-all hover:bg-white/30 hover:scale-110"
+              className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
             >
-              <Info size={24} className="text-white" />
+              <Info size={20} className="text-white" />
             </button>
           </div>
         </div>
       </div>
 
-      <div className="mt-3 px-2">
-        <h3 className="font-semibold text-white truncate group-hover:text-blue-400 transition-colors">
+      {/* Card Info */}
+      <div className="mt-3">
+        <h3 className="font-medium text-white text-sm truncate group-hover:text-blue-400 transition-colors">
           {video.title}
         </h3>
-        <div className="mt-1 flex items-center gap-2 text-sm text-gray-400">
-          <span className="rounded bg-yellow-500/20 px-2 py-1 text-yellow-400 text-xs">
-            ⭐ {video.rating}
+        <div className="mt-1 flex items-center gap-2 text-xs text-gray-400">
+          <span className="bg-gray-700 text-gray-300 px-2 py-0.5 rounded text-xs">
+            {video.rating}
           </span>
           <span>{video.genre}</span>
           <span>{video.duration}</span>
