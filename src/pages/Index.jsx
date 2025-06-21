@@ -51,10 +51,10 @@ const Index = () => {
     return allVideos.filter(video => 
       video.genre.toLowerCase() === activeCategory.toLowerCase()
     );
-  }, [activeCategory, allVideos]);
+  }, [activeCategory]);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
       <Navigation />
       
       <div className="pb-8">
@@ -62,7 +62,7 @@ const Index = () => {
           <Hero />
         </div>
 
-        <div className="mt-12">
+        <div className="mt-12 space-y-8">
           <CategoryFilter 
             categories={videoData.categories}
             activeCategory={activeCategory}
@@ -70,25 +70,25 @@ const Index = () => {
           />
 
           {activeCategory === 'All' ? (
-            <>
+            <div className="space-y-8">
               <VideoCarousel 
-                title="Trending Now"
+                title="🔥 Trending Now"
                 videos={videoData.trending}
                 onPreview={handlePreview}
               />
               
               <VideoCarousel 
-                title="Continue Watching"
+                title="⏯️ Continue Watching"
                 videos={videoData.continueWatching}
                 onPreview={handlePreview}
               />
               
               <VideoCarousel 
-                title="New Releases"
+                title="✨ New Releases"
                 videos={videoData.newReleases}
                 onPreview={handlePreview}
               />
-            </>
+            </div>
           ) : (
             <VideoCarousel 
               title={`${activeCategory} Content`}
