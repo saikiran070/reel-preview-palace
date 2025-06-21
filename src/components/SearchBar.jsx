@@ -35,7 +35,7 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
             <div className="relative w-full">
               <Search 
                 size={18} 
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none z-10" 
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300 pointer-events-none z-10" 
               />
               <input
                 type="text"
@@ -44,7 +44,7 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
                 placeholder="Search movies, shows..."
-                className={`w-full pl-10 pr-10 py-2 bg-gray-800/80 backdrop-blur-sm border border-gray-600 rounded-lg text-white placeholder-gray-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-gray-700/80 ${
+                className={`w-full pl-10 pr-10 py-2 bg-gray-700 border border-gray-500 rounded-lg text-white placeholder-gray-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-gray-600 ${
                   isFocused ? 'shadow-lg' : ''
                 }`}
               />
@@ -52,7 +52,7 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
                 <button
                   type="button"
                   onClick={handleClear}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors z-10"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-white transition-colors z-10"
                 >
                   <X size={16} />
                 </button>
@@ -65,7 +65,7 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
       {/* Mobile Search Toggle */}
       <button
         onClick={onToggle}
-        className="md:hidden p-2 rounded-lg hover:bg-gray-800/50 transition-colors text-gray-300 hover:text-white"
+        className="md:hidden p-2 rounded-lg hover:bg-gray-700 transition-colors text-gray-200 hover:text-white"
       >
         {isExpanded ? <X size={20} /> : <Search size={20} />}
       </button>
@@ -77,21 +77,21 @@ const SearchBar = ({ onSearch, isExpanded, onToggle }) => {
             <div className="relative">
               <Search 
                 size={18} 
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" 
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300 pointer-events-none" 
               />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={handleInputChange}
                 placeholder="Search movies, shows..."
-                className="w-full pl-10 pr-10 py-3 bg-gray-800/90 backdrop-blur-sm border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full pl-10 pr-10 py-3 bg-gray-700 border border-gray-500 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 autoFocus
               />
               {searchTerm && (
                 <button
                   type="button"
                   onClick={handleClear}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-white transition-colors"
                 >
                   <X size={16} />
                 </button>

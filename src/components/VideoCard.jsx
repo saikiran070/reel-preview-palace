@@ -29,7 +29,7 @@ const VideoCard = ({ video, onPreview }) => {
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleCardClick}
     >
-      <div className="relative overflow-hidden rounded-lg bg-gray-800 shadow-lg border border-gray-700">
+      <div className="relative overflow-hidden rounded-lg bg-gray-800 shadow-lg border border-gray-600">
         <img 
           src={video.image} 
           alt={video.title}
@@ -40,7 +40,7 @@ const VideoCard = ({ video, onPreview }) => {
         {video.progress && (
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-600">
             <div 
-              className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"
+              className="h-full bg-blue-500 transition-all duration-300"
               style={{ width: `${video.progress}%` }}
             />
           </div>
@@ -70,12 +70,12 @@ const VideoCard = ({ video, onPreview }) => {
         <h3 className="font-medium text-white text-sm truncate group-hover:text-blue-400 transition-colors">
           {video.title}
         </h3>
-        <div className="mt-1 flex items-center gap-2 text-xs text-gray-400">
-          <span className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-2 py-0.5 rounded text-xs font-bold">
+        <div className="mt-1 flex items-center gap-2 text-xs text-gray-300">
+          <span className="bg-yellow-500 text-black px-2 py-0.5 rounded text-xs font-bold">
             {video.rating}
           </span>
-          <span className="bg-gray-700 text-gray-300 px-2 py-0.5 rounded">{video.genre}</span>
-          <span className="text-gray-400">{video.duration}</span>
+          <span className="bg-gray-600 text-gray-200 px-2 py-0.5 rounded">{video.genre}</span>
+          <span className="text-gray-300">{video.duration}</span>
         </div>
       </div>
     </div>
